@@ -117,7 +117,7 @@ color: #fa8341;
   		methods:{
   			loginSubmit: function(){
   	  			self = this;
-  				$.post('http://127.0.0.1/joinUs/login_handle.php?do=login', this.Login, function(ret){
+  				$.post('/joinUs/login_handle.php?do=login', this.Login, function(ret){
   	  				if(ret &&  ret.success){
 						window.location = 'index.php';
   	  	  			}else{
@@ -127,7 +127,7 @@ color: #fa8341;
   	  		},
   	  		registerSubmit: function(){
   	  			self = this;
-  				$.post('http://127.0.0.1/joinUs/login_handle.php?do=register', this.Register, function(ret){
+  				$.post('/joinUs/login_handle.php?do=register', this.Register, function(ret){
   	  				if(ret &&  ret.success){
 						window.location = 'setting.php';
   	  	  			}else{
