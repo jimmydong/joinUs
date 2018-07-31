@@ -24,7 +24,7 @@ foreach($rows as $row){
 }
 ?>
   	<div id="app" class="container">
-  		<my-menu active_name="4"></my-menu>
+  		<my-menu active_name="3"></my-menu>
 	    <br>
 	    <h3>我的日程</h3>
 	    <Row class="schedule header">
