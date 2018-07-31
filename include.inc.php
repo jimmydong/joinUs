@@ -80,7 +80,7 @@ function show_header(){
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" />
-	<title>join-me</title>
+	<title>Join Us</title>
 	<link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
 	<link rel="stylesheet" href="style/full.css">
 	<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
