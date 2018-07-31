@@ -1,6 +1,11 @@
 <?php
-if($_REQUEST['debug']) define('PRODUCT', false);
-else define('PRODUCT', true);
+if($_REQUEST['debug']){
+	define('PRODUCT', false);
+	error_reporting(E_ALL);
+}else{
+	define('PRODUCT', true);
+	error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
+}
 class DB extends SQLite3
 {
 	function __construct()

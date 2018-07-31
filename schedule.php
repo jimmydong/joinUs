@@ -6,7 +6,7 @@ $date = date('Y-m-d');
 $rows = $db->fetchAll("select * from appointment where date >= '{$date}' order by date");
 $list = [];
 foreach($rows as $row){
-	if($row['user_id'] == $me['id'] || in_array($me['id'], json_decode($row['json_user'], true))){
+	if($row['user_id'] == $me['id'] || in_array($me['id'], json_decode($row['json_user'], true)?:[])){
 		$star = '';
 		for($i=0;$i<intval($row['rank']/2);$i++){
 			$star .= "★";
