@@ -21,7 +21,7 @@ if($where){
 		$yard = Util::getById('yard', $val['yard_id']);
 		
 		if($val['user_id'] == $me['id']) $join = "<a href='script:;'>我发起的</a>";
-		else $join = "<a href='script:;' onclick='join({$val['id']})'>我要加入</a>";
+		else $join = "<a href='javascript:;' onclick='join({$val['id']})'>我要加入</a>";
 		
 		$location[] = [
 				'label'=> $yard['name'],
