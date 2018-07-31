@@ -1,0 +1,126 @@
+html,body {
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: '微软雅黑'
+}
+
+.container {
+	margin: 3px;
+	padding: 2px;
+}
+
+pre {
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid #DDD;
+}
+
+#map {
+  height: 600px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+       
+.box {
+	background: rgba(0, 153, 229, 0.9) none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    text-align: center;
+}
+
+.list {
+	padding: 5px;
+    color: rgba(0, 0, 0, 0.87);
+	min-height: 48px;
+}
+.list .title{
+    font-size: 16px;
+    max-width: 100%;
+}
+.list .right{
+	text-align:right;
+}
+.list .badge{
+	border: 1px solid #888;
+	border-radius: 4px;
+	padding: 2px;
+}
+.list:nth-child(2n+1) {
+    background: #fafafa none repeat scroll 0 0;
+}
+.list:hover {
+    background: #EEEEEE none repeat scroll 0 0;
+}
+
+.middle:before{
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+.middle{
+	vertical-align: middle;
+	width: auto;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ivu-col p{
+	text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+	
+}
+.ivu-col .red{
+	background: rgba(229, 88, 88, 0.9) none repeat scroll 0 0;
+	color: #fff;
+}
+
+.ivu-col .blue{
+	background: rgba(0, 153, 229, 0.9) none repeat scroll 0 0;
+	color: #fff;
+}
+
+.ivu-col .grey{
+	background: rgba(200, 200, 200, 0.9) none repeat scroll 0 0;
+	color: #fff;
+}
+
+.blue{
+    background-color: #2db7f5;
+    color: #fff;
+}
+.yellow{
+    background-color: #ff6600;
+    color: #fff;
+}
+.green{
+    background-color: #187;
+    color: #fff;
+}
+
+.schedule .ivu-col{
+	padding: 10px 0;
+	text-align: center;
+	border: 1px solid #888;
+}
+
+.header{
+	background: rgba(0,153,229,.7);
+	color: #fff;
+}
+
+.free{
+	background: rgba(0,153,229,.9);
+	color: #fff;
+}
+
+.busy{
+	background: #FFF;
+	color: #444;
+}
+
