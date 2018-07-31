@@ -1,3 +1,4 @@
 .settings/*
 .buildpath
 .project
+sqlite3db.db
