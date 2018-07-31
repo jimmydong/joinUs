@@ -2,7 +2,7 @@
 var template = function(){/*
 	    <i-Menu mode="horizontal" :theme="theme" :active-name="active_name">
 	        <Menu-Item name="1" @click.native="menu_go(1)">
-	            <Icon type="ios-people"></Icon>
+	            <Icon type="ios-map"></Icon>
 	            附近
 	        </Menu-Item>
 	        <Menu-Item name="2" @click.native="menu_go(2)">
@@ -15,7 +15,7 @@ var template = function(){/*
 	        </Menu-Item>
 
 	        <Menu-Item name="4" @click.native="menu_go(4)">
-	            <Icon type="settings"></Icon>
+	            <Icon type="ios-settings"></Icon>
 	            设置
 	        </Menu-Item>
 	    </i-Menu>
