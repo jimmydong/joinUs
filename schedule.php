@@ -29,7 +29,7 @@ foreach($rows as $row){
 	    <h3>我的日程</h3>
 	    <Row class="schedule header">
 	    	<i-Col span="8">时间</i-Col>
-	    	<i-Col span="16">明天</i-Col>
+	    	<i-Col span="16">活动</i-Col>
 	    </Row>
 	    <Row v-for="item,index in list" :key="index" class="schedule">
 	    	<i-Col span="8">{{item.date}}</i-Col>
