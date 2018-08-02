@@ -16,6 +16,6 @@ end_of_head;
 include('include.inc.php');
 
 Util::init();
-echo "init OK";
+echo "init OK。 <a href='/login.php'>join now!</a>";
 
 

@@ -38,7 +38,7 @@ if($where){
 	<div id="app" class="container">
 		<my-menu active_name="1"></my-menu>
 		<br>
-		<h3>Recommend Appointment</h3>
+		<h3>Click the mark to view detail</h3>
 	<div id="map"></div>
 	</div>
 	

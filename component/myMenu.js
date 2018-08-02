@@ -7,16 +7,16 @@ var template = function(){/*
 	        </Menu-Item>
 	        <Menu-Item name="2" @click.native="menu_go(2)">
 	            <Icon type="ios-people"></Icon>
-	            Recommend
+	            Find
 	        </Menu-Item>
 	        <Menu-Item name="3" @click.native="menu_go(3)">
 	            <Icon type="ios-paper"></Icon>
-	            Calendar
+	            Date
 	        </Menu-Item>
 
 	        <Menu-Item name="4" @click.native="menu_go(4)">
 	            <Icon type="ios-settings"></Icon>
-	            Setting
+	            Set
 	        </Menu-Item>
 	    </i-Menu>
 */}.toString().split('\n').slice(1,-1).join('\n') + '\n';
