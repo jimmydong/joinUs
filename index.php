@@ -10,7 +10,7 @@ $my_game = [];
 foreach($my_rank as $game_id=>$rank){
 	if(! $rank)continue;
 	$where[] = " (game_id='{$game_id}' and rank='{$rank}') ";
-	$my_game[$game_id] = Util::getById('game', $game_id)['name'] . "(级别：{$rank})";
+	$my_game[$game_id] = Util::getById('game', $game_id)['name'] . "(rank: {$rank})";
 }
 $location = [];
 if($where){
@@ -20,12 +20,12 @@ if($where){
 		$game = Util::getById('game', $val['game_id']);
 		$yard = Util::getById('yard', $val['yard_id']);
 		
-		if($val['user_id'] == $me['id']) $join = "<a href='script:;'>我发起的</a>";
-		else $join = "<a href='javascript:;' onclick='join({$val['id']})'>我要加入</a>";
+		if($val['user_id'] == $me['id']) $join = "<a href='script:;'>I called</a>";
+		else $join = "<a href='javascript:;' onclick='join({$val['id']})'>Join now</a>";
 		
 		$location[] = [
 				'label'=> $yard['name'],
-				'title'=> "【{$game['name']}】<br/>日期：{$val['date']}<br/>" . $join,
+				'title'=> "[{$game['name']}]<br/>date: {$val['date']}<br/>" . $join,
 				'lat'=> floatval($yard['lat']),
 				'lng'=> floatval($yard['lng']),
 				'key'=> $key
@@ -38,7 +38,7 @@ if($where){
 	<div id="app" class="container">
 		<my-menu active_name="1"></my-menu>
 		<br>
-		<h3>推荐的活动</h3>
+		<h3>Recommend Appointment</h3>
 	<div id="map"></div>
 	</div>
 	
@@ -89,9 +89,9 @@ if($where){
     function join(id){
 		$.post('list_handle.php?do=join', {id:id}, function(ret){
 			if(ret && ret.success){
-				alert('加入活动成功');
+				alert('Join successfully');
 			}else{
-				alert('错误：' + ret.msg);
+				alert('Error: ' + ret.msg);
 			}
 		},'JSON');
     }

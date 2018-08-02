@@ -16,7 +16,7 @@ foreach($rows as $row){
 		$list[] = [
 				'game'	=> Util::getById('game', $row['game_id']),
 				'yard'	=> Util::getById('yard', $row['yard_id']),
-				'title'	=> ($row['user_id'] == $me['id']) ? '我发起的' : '我报名了',
+				'title'	=> ($row['user_id'] == $me['id']) ? 'By me' : 'I joined',
 				'star'	=> $star,
 				'date'	=> $row['date']
 		];
@@ -26,10 +26,10 @@ foreach($rows as $row){
   	<div id="app" class="container">
   		<my-menu active_name="3"></my-menu>
 	    <br>
-	    <h3>我的日程</h3>
+	    <h3>My schadule</h3>
 	    <Row class="schedule header">
-	    	<i-Col span="8">时间</i-Col>
-	    	<i-Col span="16">活动</i-Col>
+	    	<i-Col span="8">Date</i-Col>
+	    	<i-Col span="16">Item</i-Col>
 	    </Row>
 	    <Row v-for="item,index in list" :key="index" class="schedule">
 	    	<i-Col span="8">{{item.date}}</i-Col>

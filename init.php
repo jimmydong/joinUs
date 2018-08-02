@@ -15,9 +15,7 @@ print <<< end_of_head
 end_of_head;
 include('include.inc.php');
 
-echo "plase visit <a href='init.php'>init.php</a> to init. <br/><hr/>";
-Util::check('user');
-Util::check('appointment');
-
+Util::init();
+echo "init OK";
 
 

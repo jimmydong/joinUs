@@ -9,7 +9,7 @@ $my_game = [];
 foreach($my_rank as $game_id=>$rank){
 	if(! $rank)continue;
 	$where[] = " (game_id='{$game_id}' and rank='{$rank}') ";
-	$my_game[$game_id] = Util::getById('game', $game_id)['name'] . "(级别：{$rank})";
+	$my_game[$game_id] = Util::getById('game', $game_id)['name'] . "(rank: {$rank})";
 }
 if($where){
 	$list = $db->fetchAll("select * from appointment where  (" . implode(' OR ', $where) . ") order by id desc");
@@ -28,8 +28,8 @@ if($where){
 		
 		$list[$key]['number'] = count(json_decode(stripcslashes($val['json_user']), true)) + 1;
 		
-		if($val['user_id'] == $me['id']) $list[$key]['badge'] = "我发起的";
-		else $list[$key]['badge'] = "立即加入";
+		if($val['user_id'] == $me['id']) $list[$key]['badge'] = "By me";
+		else $list[$key]['badge'] = "Join now";
 	}
 }else{
 	$list = [];
@@ -37,13 +37,13 @@ if($where){
 //格式化
 foreach($list as $key=>$val){
 	$list[$key]['title'] = "{$val['yard']}，{$val['game']}，日期：{$val['date']}";
-	$list[$key]['info'] = "已有{$val['number']}人 / 限{$val['max_number']}人，等级：{$val['star']}";
+	$list[$key]['info'] = "{$val['number']}people / max {$val['max_number']}, rank: {$val['star']}";
 }
 ?>
   	<div id="app" class="container">
   		<my-menu active_name="2"></my-menu>
 	    <br>
-	    <h3>推荐的活动</h3>
+	    <h3>Recommend Appointment</h3>
 	    <div>
 			<Row :gutter=16 v-for="item,index in list" class="list" type="flex" align="middle" :key="index"> 
 			<i-Col :xs="16" :sm="18" :md="20" :lg="22"><div class="title" @click="click(index)"><Icon v-if="item.icon" :type="item.icon"></Icon> {{item.title}}</div>
@@ -52,28 +52,28 @@ foreach($list as $key=>$val){
 			</Row>
 		</div>
 		<div v-if="no_list">
-			暂无活动。快来发起一个吧~~
+			There is no appointment. You can publish one now !
 		</div>
   		<hr/>
   		<br/>
-  		<i-Button type="primary" icon="plus" @click="show_add">我要发布</i-Button>
+  		<i-Button type="primary" icon="plus" @click="show_add">I want publish</i-Button>
   		
   		<!-- 弹出层 -->
   		<Modal v-model="modal" width="400">
 			<p slot="header" style="color:#f60;text-align:center">
-				发布新活动
+				Publish new appointment
 			</p>
 			<Row :gutter="32">
 				<Col span="18">
 					<i-Form ref="addNew" :model="addNew" :rules="ruleInline" class="signin" style="margin:20px">
 						<Form-Item prop="game">
-						<i-Select type="text" v-model="addNew.game" placeholder="请选择活动类型">
+						<i-Select type="text" v-model="addNew.game" placeholder="choose game">
 							<i-Option v-for="item,index in my_game" :value="index" :key="index">{{item}}</Option>
 						</i-Select>
 						<p class="error-text" v-show="addNew.error.game">{{addNew.error.game}}</p>
 						</Form-Item>
 						<Form-Item prop="yard">
-						<i-Select type="text" v-model="addNew.yard" placeholder="请选择活动场地">
+						<i-Select type="text" v-model="addNew.yard" placeholder="choose location">
 							<i-Option v-for="item,index in yard_list" :value="index" :key="index">{{item.name}}</Option>
 						</i-Select>
 						<p class="error-text" v-show="addNew.error.yard">{{addNew.error.yard}}</p>
@@ -83,11 +83,11 @@ foreach($list as $key=>$val){
 							<p class="error-text" v-show="addNew.error.date">{{addNew.error.date}}</p>
 						</Form-Item>
 						<Form-Item prop="date">
-							<i-Input type="text" v-model="addNew.max_number" placeholder="人数限制(不填写默认为20人)"></i-Input>
+							<i-Input type="text" v-model="addNew.max_number" placeholder="max people(default:20)"></i-Input>
 						</Form-Item>
 						<Form-Item style="text-align:center">
 						<p class="error-text" v-show="addNew.error.all">{{addNew.error.all}}</p>
-						<i-Button type="primary" @click="add" style="width:60%;font-size:16px">发布</i-Button>
+						<i-Button type="primary" @click="add" style="width:60%;font-size:16px">Publish</i-Button>
 						</Form-Item>
 					</i-Form>
 				</Col>
@@ -128,12 +128,12 @@ foreach($list as $key=>$val){
   			click: function(index) {
   	  			self = this;
   	  			if(this.list[index].user_id == '<?php echo $me['id'];?>'){
-  	  	  			this.$Message.info('修改功能稍后提供');
+  	  	  			this.$Message.info('edit function ...');
   	  	  			return;
   	  			}
 				$.post('list_handle.php?do=join', {id:this.list[index].id}, function(ret){
 					if(ret && ret.success){
-						self.$Message.info('加入活动成功');
+						self.$Message.info('Join succesfully');
 					}else{
 						self.$Message.error('错误：' + ret.msg);
 					}
@@ -150,7 +150,7 @@ foreach($list as $key=>$val){
 			        if(ret && ret.success){
 				        window.location.reload(true);
 			        }else{
-				        self.$Message.error('错误：' . ret.msg);
+				        self.$Message.error('Error: ' . ret.msg);
 			        }
 		        },'JSON');
 	        }

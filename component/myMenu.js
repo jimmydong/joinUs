@@ -3,20 +3,20 @@ var template = function(){/*
 	    <i-Menu mode="horizontal" :theme="theme" :active-name="active_name">
 	        <Menu-Item name="1" @click.native="menu_go(1)">
 	            <Icon type="ios-map"></Icon>
-	            附近
+	            Nearby
 	        </Menu-Item>
 	        <Menu-Item name="2" @click.native="menu_go(2)">
 	            <Icon type="ios-people"></Icon>
-	            推荐
+	            Recommend
 	        </Menu-Item>
 	        <Menu-Item name="3" @click.native="menu_go(3)">
 	            <Icon type="ios-paper"></Icon>
-	            日历
+	            Calendar
 	        </Menu-Item>
 
 	        <Menu-Item name="4" @click.native="menu_go(4)">
 	            <Icon type="ios-settings"></Icon>
-	            设置
+	            Setting
 	        </Menu-Item>
 	    </i-Menu>
 */}.toString().split('\n').slice(1,-1).join('\n') + '\n';

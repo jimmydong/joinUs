@@ -30,7 +30,7 @@ window请注意： php.ini 中加载 sqlite3.dll
 
 ## 说明
 
-首次运行： http://xxxx/joinUs/test.php 进行初始化
+首次运行： http://xxxx/joinUs/init.php 进行初始化
 
 初始化自动加入了演示用场地信息、项目信息、人员信息。 请自行开发功能对各项信息进行管理。
 

@@ -4,17 +4,17 @@ $me = check_login();
 
 if($_REQUEST['do'] == 'add'){
 	if(! $game = $_REQUEST['game']){
-		json_fail('活动类型错误');
+		json_fail('Type wrong');
 	}
 	if(! $yard = $_REQUEST['yard']){
-		json_fail('活动场地错误');
+		json_fail('Yard wrong');
 	}
 	if(! $max_number = $_REQUEST['max_number']){
 		$max_number = 20;
 	}
 	$my_rank = json_decode(stripslashes($me['json_rank']), true);
 	if(! $rank = $my_rank[$game]){
-		json_fail('级别计算错误');
+		json_fail('Rank wrong');
 	}
 	$db->insert('appointment', [
 			'user_id'		=> $me['id'],
@@ -29,14 +29,14 @@ if($_REQUEST['do'] == 'add'){
 
 if($_REQUEST['do'] == 'join'){
 	if(! $id = $_REQUEST['id']){
-		json_fail('ID错误');
+		json_fail('ID wrong');
 	}
 	if(! $appointment = Util::getById('appointment', $id)){
-		json_fail('活动异常');
+		json_fail('Appointment wrong');
 	}
 	$user_list = json_decode(stripcslashes($appointment['json_user']), true);
 	if(in_array($me['id'], $user_list)){
-		json_fail('已经加入过');
+		json_fail('had joined');
 	}
 	
 	$user_list[] = $me['id'];

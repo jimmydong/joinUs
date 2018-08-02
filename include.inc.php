@@ -1,10 +1,10 @@
 <?php
+error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
 if($_REQUEST['debug']){
 	define('PRODUCT', false);
 	error_reporting(E_ALL);
 }else{
 	define('PRODUCT', true);
-	error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
 }
 class DB extends SQLite3
 {
@@ -148,16 +148,16 @@ class Util{
 		$sql = 'create table appointment (id INTEGER PRIMARY KEY, game_id, yard_id, user_id, rank, date, max_number, json_user)';
 		$db->doExec($sql);
 		//初始化数据
-		$game = ['足球','篮球','棒球','冰球','排球'];
+		$game = ['football','basketball','soccer','baseball','tennis'];
 		foreach($game as $val){
 			$db->insert('game', ['name'=>$val]);
 		}
 		$yard = [
-				['name' => '麦迪逊公园', 'address'=> '麦迪逊大道125号', 'lng'=>'-73.945192', 'lat'=>'40.804145'],
-				['name' => '莫宁塞得公园', 'address'=> 'wait input ...', 'lng'=>'-73.958002', 'lat'=>'40.806906'],
-				['name' => '西街花园', 'address'=> 'wait input ...', 'lng'=>'-73.962616', 'lat'=>'40.802829'],
-				['name' => '弗莱德游乐场', 'address'=> 'wait input ...', 'lng'=>'-73.967208', 'lat'=>'40.797696'],
-				['name' => '滑板公园', 'address'=> 'wait input ...', 'lng'=>'-73.970383', 'lat'=>'40.804811'],
+				['name' => 'MadisonGarden', 'address'=> 'MadisonStr.125', 'lng'=>'-73.945192', 'lat'=>'40.804145'],
+				['name' => 'MorningSidePart', 'address'=> 'wait input ...', 'lng'=>'-73.958002', 'lat'=>'40.806906'],
+				['name' => 'WestStreetGarden', 'address'=> 'wait input ...', 'lng'=>'-73.962616', 'lat'=>'40.802829'],
+				['name' => 'FledYard', 'address'=> 'wait input ...', 'lng'=>'-73.967208', 'lat'=>'40.797696'],
+				['name' => 'SkateboardPart', 'address'=> 'wait input ...', 'lng'=>'-73.970383', 'lat'=>'40.804811'],
 		];
 		foreach($yard as $val){
 			$db->insert('yard', $val);

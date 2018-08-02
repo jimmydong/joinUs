@@ -24,10 +24,10 @@ color: #fa8341;
 </style>
 <div id=app>
 	<div class="container">
-		<h3>“大家一起来运动”欢迎你！</h3>
+		<h3>Welcome: "Join Us to sport"</h3>
 		<br/>
 		<br/>
-		请先：<i-Button @click="modal = true" style="font-size:14px;background: #393D49;color: #fff;">登录/注册</i-Button>
+		Please: <i-Button @click="modal = true" style="font-size:14px;background: #393D49;color: #fff;">Login/Regist</i-Button>
 		
 		<Modal v-model="modal" width="400">
 			<p slot="header" style="color:#f60;text-align:center">
@@ -35,49 +35,49 @@ color: #fa8341;
 			<Row :gutter="32">
 				<Col span="24">
 				<Tabs>
-					<Tab-Pane label="登录">
+					<Tab-Pane label="Login">
 					<i-Form ref="Login" :model="Login" :rules="ruleInline" class="signin" style="margin-top:30px">
 						<Form-Item prop="mobile">
-						<i-Input type="text" v-model="Login.mobile" placeholder="输入用户名" >
+						<i-Input type="text" v-model="Login.mobile" placeholder="name" >
 						<Icon type="ios-person-outline" slot="prepend"></Icon>
 						</i-Input>
 						<p class="error-text" v-show="Login.error.mobile">{{Login.error.mobile}}</p>
 						</Form-Item>
 						<Form-Item prop="passwd">
-						<i-Input type="password" v-model="Login.passwd" placeholder="输入密码" >
+						<i-Input type="password" v-model="Login.passwd" placeholder="password" >
 						<Icon type="ios-locked-outline" slot="prepend"></Icon>
 						</i-Input>
 						<p class="error-text" v-show="Login.error.passwd">{{Login.error.passwd}}</p>
 						</Form-Item>
 						<Form-Item style="text-align:center">
 						<p class="error-text" v-show="Login.error.all">{{Login.error.all}}</p>
-						<i-Button type="primary" @click="loginSubmit" style="width:60%;font-size:16px">登录</i-Button>
+						<i-Button type="primary" @click="loginSubmit" style="width:60%;font-size:16px">Login</i-Button>
 						</Form-Item>
 					</i-Form>
 					</Tab-Pane>
-					<Tab-Pane label="注册">
+					<Tab-Pane label="Regist">
 					<i-Form ref="Register" :model="Register" :rules="ruleInline" class="signup" style="margin-top:30px">
 						<Form-Item prop="mobile">
-						<i-Input type="text" v-model="Register.mobile" placeholder="输入用户名" style="text-align:center">
+						<i-Input type="text" v-model="Register.mobile" placeholder="name" style="text-align:center">
 						<Icon type="ios-person-outline" slot="prepend"></Icon>
 						</i-Input>
 						<p class="error-text marb8" v-show="Register.error.mobile">{{Register.error.mobile}}</p>
 						</Form-Item>
 						<Form-Item prop="code">
 						<div class="flex">
-						<i-Input type="text" v-model="Register.code" placeholder="输入获取的验证码" style="text-align:center"></i-Input>
+						<i-Input type="text" v-model="Register.code" placeholder="valid code" style="text-align:center"></i-Input>
 						</div>
 						<p class="error-text marb8" v-show="Register.error.code">{{Register.error.code}}</p>
 						</Form-Item>
 						<Form-Item prop="passwd">
-						<i-Input type="password" v-model="Register.passwd" placeholder="输入密码">
+						<i-Input type="password" v-model="Register.passwd" placeholder="password">
 						<Icon type="ios-locked-outline" slot="prepend"></Icon>
 						</i-Input>
 						<p class="error-text marb8" v-show="Register.error.passwd">{{Register.error.passwd}}</p>
 						</Form-Item>
 						<Form-Item style="text-align:center">
 						<p class="error-text marb8" v-show="Register.error.error">{{Register.error.error}}</p>
-						<i-Button type="primary" @click="registerSubmit" style="width:60%;font-size:16px">注册</i-Button>
+						<i-Button type="primary" @click="registerSubmit" style="width:60%;font-size:16px">Regist</i-Button>
 						</Form-Item>
 					</i-Form>
 					</Tab-Pane>
@@ -98,7 +98,7 @@ color: #fa8341;
   		Login: {
 			mobile: '',
 			code: '',
-			error: {mobile: '请输入用户名', passwd: '请输入密码'}
+			error: {mobile: 'please input name', passwd: 'please input password'}
   	  	},
   		ruleInline: {
 			mobile: []
@@ -107,7 +107,7 @@ color: #fa8341;
   	  	  	mobile: '',
   	  	  	code: '',
   	  	  	passwd: '',
-  	  	  	error: {mobile: '请输入用户名', code: '测试期请输入1234', passwd: '请输入密码'}
+  	  	  	error: {mobile: 'please input name', code: 'please input: 1234', passwd: 'please input password'}
   	  	}
   	}
 
@@ -121,7 +121,7 @@ color: #fa8341;
   	  				if(ret &&  ret.success){
 						window.location = 'index.php';
   	  	  			}else{
-  	  	  				self.$Message.error("错误：" + ret.msg);
+  	  	  				self.$Message.error("Error: " + ret.msg);
   	  	  	  		}
 				},'JSON');
   	  		},
@@ -131,7 +131,7 @@ color: #fa8341;
   	  				if(ret &&  ret.success){
 						window.location = 'setting.php';
   	  	  			}else{
-  	  	  				self.$Message.error("错误：" + ret.msg);
+  	  	  				self.$Message.error("Error: " + ret.msg);
   	  	  	  		}
 				},'JSON');
   	  		}

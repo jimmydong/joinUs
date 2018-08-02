@@ -3,12 +3,12 @@ include('include.inc.php');
 $me = check_login();
 
 if(! $nickname = $_REQUEST['nickname']){
-	json_fail('昵称设定错误');
+	json_fail('nickname wrong');
 }
 $game_list = Util::getGameList();
 $my_rank = [];
 foreach($_REQUEST['my_rank'] as $k=>$v){
-	if($v > 10 || $v < 0) json_fail('等级设定错误');
+	if($v > 10 || $v < 0) json_fail('rank wrong');
 	foreach($game_list as $game_id=>$game){
 		if($game['name'] == $k)break;
 	}
